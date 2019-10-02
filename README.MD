@@ -40,37 +40,30 @@ import { LuluModule } from '@ntegral/nestjs-lulu';
 
 @Module({
   imports: [
-    OpenTokModule.forRoot({
-      apiKey: 'tokbok_api_key',
-      apiSecret: 'tokbok_secret_key'
+    LuluModule.forRoot({
+      client_key: 'lulu_api_key',
+      client_secret: 'lulu_secret_key',
+      environment: 'development' | 'production'
     }),
   ],
 })
 export class AppModule {}
 ```
 
-You can then inject the OpenTok client into any of your injectables by using a
+You can then inject the Lulu client into any of your injectables by using a
 custom decorator
 
 ```typescript
 import { Injectable } from '@nestjs/common';
-import { InjectOpenTok } from '@ntegral/nestjs-opentok';
-import * as OpenTok from 'opentok';
+import { InjectLulu } from '@ntegral/nestjs-lulu';
+import { LuluService } from '@ntegral/lulu';
 
 @Injectable()
 export class AppService {
-  public constructor(@InjectOpenTok() private readonly client: OpenTok) {}
+  public constructor(@InjectLulu() private readonly client: LuluService) {}
 
-  createSession() {
-    return new Promise((resolve, reject) => {
-      this.opentok.createSession({mediaMode: 'routed', archiveMode: 'always'}, (err, session) => {
-        if (err) {
-          console.log(err);
-          reject(err);
-        }
-        resolve(session);
-      })
-    })
+  listShippingOptions() {
+    return this.client.shippingOptions.list({page: 1, page_size: 100, iso_country_code: 'US'});
   }
 }
 ```
@@ -81,16 +74,17 @@ Asynchronous setup is also supported
 import { Module } from '@nestjs-common';
 import { ConfigModule } from '../common/config/config.module';
 import { ConfigService } from '../common/config/config.service';
-import { OpenTokModule } from '@ntegral/nestjs-sendgrid';
+import { LuluModule } from '@ntegral/nestjs-lulu';
 
 @Module({
   imports: [
-    OpenTokModule.forRootAsync({
+    LuluModule.forRootAsync({
       imports: [ConfigModule],  
       inject: [ConfigService],
       useFactory: (cfg: ConfigService) => ({
-        apiKey: cfg.get('tokbox_api_key'),
-        apiSecret: cfg.get('tokbox_secret')
+        client_key: cfg.get('lulu_api_key'),
+        client_secret: cfg.get('lulu_secret'),
+        environment: 'development' | 'production'
       }),
     }),
   ],
@@ -116,6 +110,5 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## Acknowledgements
 
 - [nestjs](https://nestjs.com)
-- [tokbox](https://github.com/opentok/opentok-node)
 
 Copyright &copy; 2019 Ntegral Inc.
