@@ -9,13 +9,18 @@
   "name": "@ntegral/nestjs-lulu",
   "version": "0.0.1",
   "description": "Provides an injectable lulu api client to provide features to the Lulu API",
-  "main": "index.js",
+  "main": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "clean": "rm -rf dist",
     "format": "prettier --write \"lib/**/*.ts\"",
     "publish:npm": "npm publish --access public",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ntegral/nestjs-lulu.git"
   },
   "keywords": [
     "Lulu",
