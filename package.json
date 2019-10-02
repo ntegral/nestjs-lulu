@@ -1,0 +1,41 @@
+{
+  "contributors": [
+    {
+      "name": "Dexter Hardy",
+      "email": "dexter.hardy@ntegral.com",
+      "url": "http://www.ntegral.com"
+    }
+  ],
+  "name": "@ntegral/nestjs-lulu",
+  "version": "0.0.1",
+  "description": "Provides an injectable lulu api client to provide features to the Lulu API",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "clean": "rm -rf dist",
+    "format": "prettier --write \"lib/**/*.ts\"",
+    "publish:npm": "npm publish --access public",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Lulu",
+    "NestJs",
+    "Node",
+    "Publishing",
+    "API"
+  ],
+  "author": "ntegral inc.",
+  "license": "ISC",
+  "dependencies": {
+    "@ntegral/lulu": "^1.0.5"
+  },
+  "devDependencies": {
+    "@nestjs/common": "^6.8.0",
+    "@nestjs/core": "^6.8.0",
+    "@nestjs/testing": "^6.8.0",
+    "prettier": "^1.18.2",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^6.5.3",
+    "typescript": "^3.6.3"
+  }
+}
