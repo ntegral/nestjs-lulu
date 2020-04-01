@@ -8,8 +8,8 @@ import { LuluModule } from '../lulu.module';
 describe('InjectS3', () => {
 
     let config: LuluConfigOptions = {
-        client_key: '--- lulu client key ---',
-        client_secret: '--- lulu client secret ---',
+        client_key: '---lulu client key ---',
+        client_secret: '---lulu client secret ---',
         environment: 'development'
     };
 

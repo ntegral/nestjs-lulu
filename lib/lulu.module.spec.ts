@@ -8,8 +8,8 @@ import { LuluConfigOptionsFactory } from './interfaces';
 describe('LuluModule', () => {
 
     let config: LuluConfigOptions = {
-        client_key: '--- lulu client key ---',
-        client_secret: '--- lulu client secret ---',
+        client_key: '---lulu client key ---',
+        client_secret: '---lulu client secret ---',
         environment: 'development'
     };
 
