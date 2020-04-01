@@ -1,3 +1,7 @@
+[![npm version](http://img.shields.io/npm/v/@ntegral/nestjs-lulu.svg?style=flat)](https://npmjs.org/package/@ntegral/nestjs-lulu "View this project on npm")
+[![Codecov Coverage](https://img.shields.io/codecov/c/github/ntegral/nestjs-lulu/master.svg?style=flat-square)](https://codecov.io/gh/ntegral/nestjs-lulu)
+[![ISC license](http://img.shields.io/badge/license-ISC-brightgreen.svg)](http://opensource.org/licenses/ISC)
+
 <p align="center">
   <h3 align="center">
     @ntegral/nestjs-lulu

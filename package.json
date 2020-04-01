@@ -7,7 +7,7 @@
     }
   ],
   "name": "@ntegral/nestjs-lulu",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Provides an injectable lulu api client to provide features to the Lulu API",
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
@@ -16,7 +16,10 @@
     "clean": "rm -rf dist",
     "format": "prettier --write \"lib/**/*.ts\"",
     "publish:npm": "npm publish --access public",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand"
   },
   "repository": {
     "type": "git",
@@ -32,15 +35,33 @@
   "author": "ntegral inc.",
   "license": "ISC",
   "dependencies": {
-    "@ntegral/lulu": "^1.0.5"
+    "@ntegral/lulu": "^1.1.4"
   },
   "devDependencies": {
     "@nestjs/common": "^6.8.0",
     "@nestjs/core": "^6.8.0",
     "@nestjs/testing": "^6.8.0",
-    "prettier": "^1.18.2",
+    "@types/jest": "^25.1.4",
+    "jest": "^25.2.4",
+    "prettier": "^1.19.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^6.5.3",
+    "ts-jest": "^25.3.0",
+    "tsconfig-paths": "^3.9.0",
     "typescript": "^3.6.3"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "lib",
+    "testRegex": ".spec.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
   }
 }
