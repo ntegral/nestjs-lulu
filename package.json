@@ -7,7 +7,7 @@
     }
   ],
   "name": "@ntegral/nestjs-lulu",
-  "version": "1.1.8",
+  "version": "1.1.9",
   "description": "Provides an injectable lulu api client to provide features to the Lulu API",
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
